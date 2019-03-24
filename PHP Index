@@ -1,0 +1,22 @@
+#3/24/19 This code allowed me to display information from the SQL Database on the localhost, although it does use ODBC instead of PDO
+
+<?php 
+$connection_string = 'DRIVER={SQL Server}; SERVER=shelters.database.windows.net; DATABASE=Shelters';
+
+$user = 'OMITED';
+$pass = 'OMITED!';
+
+$connection = odbc_connect( $connection_string, $user, $pass );
+
+    $sql="Select Item from Items";
+
+    $rs=odbc_exec($connection,$sql);
+    if (!$rs) 
+    {exit("Error in SQL");} 
+	$output = array();
+    while($e=odbc_fetch_object($rs))
+           {$output[]=$e;}
+    print(json_encode($output)); 
+
+	
+?>
