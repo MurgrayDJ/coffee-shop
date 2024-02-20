@@ -14,5 +14,6 @@ import static org.springframework.boot.SpringApplication.run;
 public class CoffeeShop {
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(CoffeeShop.class, args);
+        System.out.println("~~~~~The coffee shop is open!~~~~~");
     }
 }
