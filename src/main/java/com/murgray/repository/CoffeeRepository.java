@@ -1,7 +1,10 @@
 package com.murgray.repository;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import com.murgray.entity.HotCoffeeType;
 
 public interface CoffeeRepository extends JpaRepository<HotCoffeeType, Long> {
     
