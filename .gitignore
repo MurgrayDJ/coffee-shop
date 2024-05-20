@@ -2,3 +2,5 @@
 src/main/resources/application.properties
 target/
 .vscode/
+data.sql.mv.db
+data.sql.trace.db

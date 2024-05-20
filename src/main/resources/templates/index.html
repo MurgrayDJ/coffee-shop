@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Coffee Types</title>
+</head>
+<body>
+    <h1>Coffee Types</h1>
+    <table>
+        <tr th:each="coffeeType : ${coffeeTypes}">
+            <td th:text="${coffeeType[0]}">Type ID</td>
+            <td th:text="${coffeeType[1]}">Coffee Type</td>
+            <td th:text="${coffeeType[2]}">Milk Type</td>
+        </tr>
+    </table>
+</body>
+</html>

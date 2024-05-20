@@ -1,35 +1,35 @@
 CREATE SCHEMA IF NOT EXISTS coffee_shop;
 
-CREATE TABLE IF NOT EXISTS milk_types (
+CREATE TABLE IF NOT EXISTS milk (
     milk_type_id INT AUTO_INCREMENT PRIMARY KEY,
     milk_type VARCHAR(100) UNIQUE NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS hot_coffee_types (
+CREATE TABLE IF NOT EXISTS hot_coffee (
     type_id INT AUTO_INCREMENT PRIMARY KEY,
     coffee_type VARCHAR(100) UNIQUE NOT NULL,
     has_coffee BOOLEAN NOT NULL,
     has_espresso BOOLEAN NOT NULL,
     milk_type_id INT,
-    milk_texture_id INT, 
+    texture_id INT, 
     has_other_ingredients BOOLEAN NOT NULL,
-    FOREIGN KEY (milk_type_id) REFERENCES milk_types(milk_type_id),
-    FOREIGN KEY (milk_texture_id) REFERENCES milk_textures(texture_id)
+    FOREIGN KEY (milk_type_id) REFERENCES milk(milk_type_id),
+    FOREIGN KEY (texture_id) REFERENCES milk_texture(texture_id)
 );
 
-CREATE TABLE IF NOT EXISTS milk_textures (
+CREATE TABLE IF NOT EXISTS milk_texture (
     texture_id INT AUTO_INCREMENT PRIMARY KEY,
-    milk_texture VARCHAR(100) NOT NULL
+    texture VARCHAR(100) NOT NULL
 );
 
-INSERT INTO milk_textures(milk_texture)
+INSERT INTO milk_texture(texture)
 VALUES 
 ('normal'),  
 ('steamed'),
 ('frothed'),
 ('foamed');
 
-INSERT INTO milk_types (milk_type)
+INSERT INTO milk(milk_type)
 VALUES 
 ('no milk'),
 ('milk'),
@@ -39,12 +39,12 @@ VALUES
 ('soy milk'),
 ('cream');
 
-INSERT INTO hot_coffee_types
+INSERT INTO hot_coffee
 (coffee_type,
 has_coffee,
 has_espresso,
 milk_type_id,
-milk_texture_id,
+texture_id,
 has_other_ingredients)
 VALUES
 ('black', TRUE, FALSE, 1, 1, FALSE),  
