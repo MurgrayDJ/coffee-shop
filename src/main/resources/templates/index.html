@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Coffee Types</title>
+    <title>Hot Coffees</title>
 </head>
 <body>
-    <h1>Coffee Types</h1>
+    <h1>Hot Coffees</h1>
     <table>
-        <tr th:each="coffeeType : ${coffeeTypes}">
-            <td th:text="${coffeeType[0]}">Type ID</td>
-            <td th:text="${coffeeType[1]}">Coffee Type</td>
-            <td th:text="${coffeeType[2]}">Milk Type</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Type ID</th>
+                <th>Coffee Type</th>
+                <th>Milk Type</th>
+                <th>Milk Texture</th>
+                <th>Has Coffee</th>
+                <th>Has Espresso</th>
+                <th>Has Other Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="coffee : ${hotCoffees}">
+                <td th:text="${coffee.typeId}">Type ID</td>
+                <td th:text="${coffee.coffeeType}">Coffee Type</td>
+                <td th:text="${coffee.milkType.milkType}">Milk Type</td>
+                <td th:text="${coffee.milkTexture.texture}">Milk Texture</td>
+                <td th:text="${coffee.hasCoffee}">Has Coffee</td>
+                <td th:text="${coffee.hasEspresso}">Has Espresso</td>
+                <td th:text="${coffee.hasOtherIngredients}">Has Other Ingredients</td>
+            </tr>
+        </tbody>
     </table>
 </body>
 </html>

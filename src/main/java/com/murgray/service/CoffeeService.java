@@ -14,7 +14,7 @@ public class CoffeeService {
         this.coffeeRepository = coffeeRepository;
     }
     
-    public List<Object[]> findCoffeeTypes() {
-        return coffeeRepository.findCoffeeTypes();
-    }
+    // public List<Object[]> findCoffeeTypes() {
+    //     return coffeeRepository.findCoffeeTypes();
+    // }
 }
